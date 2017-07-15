@@ -1,0 +1,612 @@
+/*
+TOC
+
+Mixins
+
+Typeography
+
+Navigation
+
+Jumbotron
+
+
+Footer
+
+*/
+
+@orange: #fb8400;
+@lightOrange: #f8bf90;
+@lightestOrange: #f7e2d3; 
+@blue: #3384d0; 
+@lightBlue: #78AfD8; 
+@lightestBlue: #e2f2fb; 
+@green: #4cb74a; 
+@lightGreen: #abce96; 
+@lightestGreen: #edf4e1; 
+@darkBlue: #363d45; 
+@darkGray: #4a4a4a; 
+@textColor: #767676; 
+
+
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+}
+
+@media only screen and (max-width : 767px) {
+
+}
+
+@media only screen and (max-width : 480px) {
+
+}
+
+@media only screen and (max-width : 320px) {
+
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+
+@font-face {
+    font-family: 'dax-regularregular';
+    src: url('../fonts/dax/daxregular-webfont.woff2') format('woff2'),
+         url('../fonts/dax/daxregular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+//mixins
+
+.white-text () {
+	color: #fff;
+}
+
+
+//Typeography////////////////////////////////////////////////////////////////////
+@font_dax: 'dax-regularregular', sans-serif;
+@font_sans: 'Source Sans Pro', sans-serif;
+
+.global-fontsize (@global-fontsize: 1) {
+	font-size: (@global-fontsize * 16) * 1px;
+	font-size: @global-fontsize * 1rem;
+}
+
+
+
+
+html {
+	font-size: 16px;
+	background-color: #fafafa;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: @textColor;
+	font-family: @font_sans;
+	.global-fontsize(1);
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fafafa;
+
+
+	@media only screen and (max-width : 991px) {
+		.global-fontsize(.75);
+	}
+
+	@media only screen and (max-width : 767px) {
+		.global-fontsize(.7);
+	}
+}
+
+p {
+	@media only screen and (max-width : 991px) {
+		.global-fontsize(1);
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @font_dax;
+}
+
+h1 {
+	font-size: 2.4em;
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+h2 {
+	font-size: 1.7em;
+	margin-bottom: 0;
+	margin-top: 30px;
+	line-height: 1.35em;
+}
+h3 {
+	font-size: 1.4em;
+}
+h4 {
+	font-size: 2em;
+}
+h5 {
+	font-size: 1.8em;
+}
+h6 {
+	font-size: 1.6em;
+}
+
+strong {
+	font-weight: 600;
+}
+
+//Navigation
+
+.navbar {
+	border-radius: 0;
+	min-height: 80px;
+	//padding-top: 25px;
+	//padding-bottom: 25px;
+	border: none;
+	background-color: @darkBlue;
+	margin-bottom: 0;
+	.global-fontsize(1);
+
+	.navbar-toggle {
+	    position: relative;
+	    float: right;
+	    padding: 7px 7px;
+	    margin-top: 25px;
+	    margin-right: 15px;
+	    margin-bottom: 25px;
+	    background-color: transparent;
+	    background-image: none;
+	    // border: 1px solid transparent;
+	    //     border-top-color: transparent;
+	    //     border-right-color: transparent;
+	    //     border-bottom-color: transparent;
+	    //     border-left-color: transparent;
+	    border-radius: 0;
+	}
+
+	.navbar-nav {
+		margin: 0 -15px;
+		li {
+			a {
+				color: #fff;
+				transition: all .1s ease-in-out;
+
+				&:hover {
+					color: lighten(@textColor, 30%);
+				}
+			}
+		}
+	}
+
+
+	.navbar-brand {
+		height: 30px;
+		padding: 0 15px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+
+
+		.logo {
+			height: 30px;
+		}
+
+	}
+
+	li {
+		a {
+			padding-top: 25px;
+			padding-bottom: 25px;
+			line-height: 30px;
+			color: #fff;
+
+		}
+	}
+	
+}
+
+
+//Jumbotron
+
+.jumbotron {
+	background-image: url('../media/realtor-banner.jpg');
+	background-position: center center;
+	background-size: cover;
+	margin-bottom: 0;
+
+	@media screen and (min-width: 768px){
+		padding-top: 10%;
+		padding-bottom: 10%;
+	}
+	.now-logo {
+		max-width: 200px;
+	}
+
+	.lead {
+		font-size: 2.75em;
+		line-height: initial;
+		.white-text;
+		text-shadow: 1px 1px rgba(0,0,0,.2);
+	}
+
+	.download {
+		max-width: 200px;
+		display: inline;
+		margin-bottom: 10px;
+		~ .download {
+				margin-bottom: 0;
+			}
+
+		@media screen and (min-width: 458px){
+			margin-right: 10px;
+			margin-bottom: 0;
+			~ .download {
+				margin-right: 0;
+			}
+		}
+
+		
+	}
+}
+
+//Block
+.feature-circle {
+	border-radius: 50%;
+	border: 1px solid red;
+	padding-top: 100%;
+}
+
+#diamond {
+	width: 0;
+	height: 0;
+	border: 25px solid transparent;
+	border-bottom-color: #fafafa;
+	position: relative;
+	top: -25px;
+}
+#diamond:after {
+	content: '';
+	position: absolute;
+	left: -25px;
+	top: 25px;
+	width: 0;
+	height: 0;
+	border: 25px solid transparent;
+	border-top-color: #fafafa;
+}
+
+.heading-block {
+	padding-top: 100px;
+	padding-bottom: 50px;
+
+	@media only screen and (max-width : 767px) {
+		text-align: center;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+}
+.phone-shell{
+	width: 100%;
+	position: relative;
+    z-index: 1;
+}
+
+@media only screen and (min-width : 768px) {
+	.left-text {
+		margin-right: -175px;
+	}
+
+	.right-text {
+		margin-left: -175px;
+	}
+}
+
+@media (min-width : 768px) and (max-width : 991px) {
+.right-text {
+		text-align: right;
+	}
+}
+
+.be-responsive {
+	background-color: #f5f5f5;
+	color: @darkBlue;
+	.feature-circle {
+		border: 1px solid @textColor;
+	}
+}
+
+.be-productive {
+	background-color: @blue;
+	background-image: url('../media/pattern.png');
+	color: #fff;
+	.feature-circle {
+		border: 1px solid #fff;
+	}
+}
+
+.be-proactive {
+	background-color: @darkBlue;
+	background-image: url('../media/pattern.png');
+	color: #fff;
+	.feature-circle {
+		border: 1px solid #fff;
+	}
+}
+
+.full-circle {
+	background-color: @blue;
+	background-image: url('../media/pattern.png');
+	color: #fff;
+	.feature-circle {
+		border: 1px solid #fff;
+	}
+
+	h2 {
+		margin-top: 0;
+	}
+
+	h1 {
+		margin-bottom: 15px;
+	}
+
+	@media only screen and (max-width : 767px) {
+		h1 {
+			margin-bottom: 15px;
+			margin-top: 15px;
+		}
+	}
+	
+	.right-text {
+		@media (min-width : 768px) and (max-width : 1199px) {
+			margin-left: -200px;
+			text-align: left;
+		}
+		@media (min-width : 1200px) {
+			margin-left: -125px;
+			text-align: left;
+		}
+		
+	}
+	
+}
+
+.form-block {
+	color: @blue;
+	padding-top: 50px;
+
+	h1 {
+		margin-bottom: 15px;
+	}
+	p {
+		.global-fontsize(1.3);
+		margin-bottom: 30px;
+	}
+
+	label {
+		float: left;
+		font-weight: 400;
+		.global-fontsize(1); 
+	}
+
+	.form-control {
+	    height: 50px;
+	    padding: 6px 12px;
+	    font-size: 14px;
+	    line-height: 1.42857143;
+	    color: @textColor;
+	    background-color: #fff;
+	    background-image: none;
+	    border: 2px solid @blue;
+	    border-radius: 4px;
+	    box-shadow: none;
+	    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+
+
+	.btn {
+	    display: inline-block;
+	    padding: 6px 12px;
+	    margin-bottom: 0;
+	    .global-fontsize(1.3); 
+	    font-weight: 400;
+	    line-height: 1.42857143;
+	    font-weight: 600;
+	    font-family: @font_dax;
+	    background-color: @blue;
+	    color: #fff;
+	    border: none;
+	    margin-top: 30px;
+	}
+
+	.btn:focus,.btn:active {
+	   outline: none !important;
+	}
+
+}
+
+
+.footer {
+	background-color: @darkBlue;
+	background-image: url('../media/pattern.png');
+	color: #fff;
+	padding-top: 50px;
+
+	.privacy {
+		margin: 0;
+	}
+
+	@media screen and (min-width: 768px){
+		p {
+			margin: 0;
+		}
+		.privacy {
+			text-align: right;
+		}
+	}
+}
+
+//features
+.features {
+
+	padding-bottom: 50px;
+
+	.diamond-container {
+		margin-top: -25px;
+	}
+
+	.single-feature {
+		cursor: pointer;
+		margin-top: 25px;
+		svg {
+			path {
+				fill: @darkBlue;
+				transition: all .25s ease-in-out;
+
+			}
+		}
+
+		&:hover, &.active {
+			svg {
+				path {
+					fill: @orange;
+				}
+			}
+
+			p {
+				color: @darkBlue;
+				transition: all .25s ease-in-out;
+			}
+		}
+
+		h3 {
+			color: @darkBlue;
+			font-weight: 600;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+	}
+
+
+
+}
+
+
+//interactive images
+
+
+.shell-wrap span:after {
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	content: "";
+	left: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-position: center;
+	transition: all .45s ease-in-out;
+}
+
+
+.circle-wrap div {
+	background-size: cover;
+	background-position: center center;
+	transition: all .45s ease-in-out;
+}
+//be responsive
+#traitResponsive.cfh:after {
+	background-image: url('../media/test_feature_1_right.png');
+}
+#traitResponsive.ac:after {
+	background-image: url('../media/test_feature_2_right.png');
+}
+#traitResponsive.mtrm:after {
+	background-image: url('../media/test_feature_3_right.png');
+}
+
+.circleOnetraitResponsive.cfh {
+	background-image: url('../media/test_feature_1_circle.jpg');
+}
+
+.circleOnetraitResponsive.ac {
+	background-image: url('../media/test_feature_2_circle.jpg');
+}
+
+.circleOnetraitResponsive.mtrm {
+	background-image: url('../media/test_feature_3_circle.jpg');
+}
+
+//be productive
+
+#traitProductive.cytd:after {
+	background-image: url('../media/test_feature_1_left.png');
+}
+#traitProductive.nmt:after {
+	background-image: url('../media/test_feature_2_left.png');
+}
+#traitProductive.guts:after {
+	background-image: url('../media/test_feature_3_left.png');
+}
+
+#traitProductive.gaotg:after {
+	background-image: url('../media/test_feature_4_left.png');
+}
+
+
+.circleOnetraitProductive.cytd {
+	background-image: url('../media/test_feature_1_circle.jpg');
+}
+
+.circleOnetraitProductive.nmt {
+	background-image: url('../media/test_feature_2_circle.jpg');
+}
+
+.circleOnetraitProductive.guts {
+	background-image: url('../media/test_feature_3_circle.jpg');
+}
+
+.circleOnetraitProductive.gaotg {
+	background-image: url('../media/test_feature_4_circle.jpg');
+}
+
+
+//be proactive
+#traitProactive.ai:after {
+	background-image: url('../media/test_feature_1_right.png');
+}
+#traitProactive.npo:after {
+	background-image: url('../media/test_feature_2_right.png');
+}
+#traitProactive.sp:after {
+	background-image: url('../media/test_feature_3_right.png');
+}
+
+.circleOnetraitProactive.ai {
+	background-image: url('../media/test_feature_1_circle.jpg');
+}
+
+.circleOnetraitProactive.npo {
+	background-image: url('../media/test_feature_2_circle.jpg');
+}
+
+.circleOnetraitProactive.sp {
+	background-image: url('../media/test_feature_3_circle.jpg');
+}
+
+
+
+
+
